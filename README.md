@@ -1,75 +1,80 @@
-# sql-data-warehouse-analytics
+# SQL Data Warehouse Analytics
 
-End-to-end SQL Data Warehouse Analytics project using SQL Server. Includes database design, star schema modeling, data loading via BULK INSERT, and advanced analytical queries such as KPI reporting, customer segmentation, ranking, window functions, and performance analysis.
+End-to-end SQL Data Warehouse Analytics project built using Microsoft SQL Server and T-SQL.
 
-SQL Data Warehouse Analytics
+## Project Overview
 
-Project Overview
-This project demonstrates an **end-to-end SQL Data Warehouse Analytics solution** built using **SQL Server**.  
-It covers database creation, dimensional modeling, data ingestion from CSV files, exploratory analysis, and advanced analytical reporting using SQL.
+This project demonstrates an end-to-end SQL Data Warehouse Analytics solution built using Microsoft SQL Server.
 
-The goal of this project is to showcase **real-world data analytics skills** including:
-Star schema design
-Fact & dimension tables
-Business KPIs
-Customer segmentation
-Time-based and performance analysis
-Advanced SQL window functions
+It covers:
 
-Tech Stack
-Database: Microsoft SQL Server  
-Language: T-SQL  
-Data Source: CSV files  
-Modeling: Star Schema (Fact & Dimension tables)
+- Database creation
+- Star schema (fact and dimension tables)
+- Data loading from CSV files using `BULK INSERT`
+- Exploratory data analysis
+- Business KPI reporting
+- Customer segmentation
+- Performance analysis using advanced T-SQL
 
-Dataset
-The project uses structured CSV files representing:
-Customers
-Products
-Sales transactions
+## Tech Stack
 
-Data is loaded into SQL Server using `BULK INSERT`.
+- **Database:** Microsoft SQL Server
+- **Language:** T-SQL
+- **Data Source:** CSV files
+- **Modeling:** Star Schema
 
-Database Schema
-The database follows a **star schema** design.
-Schemas
-**gold** – curated analytical tables
+## Dataset
+
+The project uses three CSV datasets:
+
+- Customers
+- Products
+- Sales Transactions
+
+These datasets are imported into SQL Server using `BULK INSERT`.
+
+## Database Schema
+
+The project follows a **Star Schema**.
+
+### Schema
+
+- `gold`
 
 ### Dimension Tables
-`gold.dim_customers`
- `gold.dim_products`
 
-Fact Table
- `gold.fact_sales`
+- `gold.dim_customers`
+- `gold.dim_products`
 
-Tables Description
+### Fact Table
 
-`gold.dim_customers`
-Stores customer demographic information such as:
-Name
-Country
-Gender
-Marital status
-Birthdate
+- `gold.fact_sales`
 
-`gold.dim_products`
-Contains product attributes including:
-Product name
-Category & subcategory
-Cost
-Product line
-Start date
+  ## Tables
 
-`gold.fact_sales`
-Stores transactional sales data:
-Order details
-Sales amount
-Quantity
-Price
-Dates (order, shipping, due)
+Table and Description 
 
-Data Loading
-Data is ingested from CSV files using:
+`gold.dim_customers` - Stores customer demographic information 
+`gold.dim_products` - Stores product information such as category, cost, and product line 
+`gold.fact_sales` - Stores sales transactions including order details, quantity, price, and sales amount 
+
+
+## Features
+
+- Database creation using T-SQL
+- Star schema design
+- Data loading using `BULK INSERT`
+- Exploratory Data Analysis (EDA)
+- KPI reporting
+- Customer segmentation
+- Product performance analysis
+- Sales trend analysis
+- Window functions (`ROW_NUMBER`, `LAG`, `SUM OVER`, `AVG OVER`)
+- Common Table Expressions (CTEs)
+- Views for reporting
+
+
+## Sample Query
 
 ```sql
 BULK INSERT gold.fact_sales
